@@ -1,10 +1,12 @@
 """Flask application for Bavly Kamel's personal portfolio."""
 
-from flask import Flask, abort, jsonify, render_template
+from flask import Flask, abort, jsonify, render_template, send_from_directory
 
 from projects import PROJECTS, get_project
 
-app = Flask(__name__)
+# Vercel serves files in public/ directly from its CDN. Disable Flask's default
+# /static route and use this fallback only for local development.
+app = Flask(__name__, static_folder=None)
 
 
 @app.get("/")
@@ -33,6 +35,12 @@ def projects_api():
         {key: value for key, value in project.items() if key != "sections"}
         for project in PROJECTS
     ])
+
+
+@app.get("/<path:asset_path>")
+def public_asset(asset_path):
+    """Serve public assets when running locally; Vercel serves them directly."""
+    return send_from_directory(f"{app.root_path}/public", asset_path)
 
 
 @app.errorhandler(404)

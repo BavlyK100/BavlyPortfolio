@@ -37,7 +37,7 @@ A personal portfolio website for Bavly Kamel, a Data Science & AI student at Zew
 
 5. Open <http://127.0.0.1:5000>.
 
-Flask's development server is intended for local development. Choose a production WSGI server when deploying.
+Flask's development server is intended for local development. Vercel detects the Flask app in `app.py` and deploys it as a Python Function. Static assets live in `public/`, where Vercel serves them through its CDN; a Flask fallback route serves the same files during local development.
 
 ## Project structure
 
@@ -53,7 +53,7 @@ BavlyPortfolio/
 │   ├── project_card.html
 │   ├── project.html
 │   └── projects.html
-└── static/
+└── public/
     ├── css/style.css
     ├── images/favicon.svg
     └── js/script.js
@@ -63,7 +63,7 @@ BavlyPortfolio/
 
 - Add future projects to `projects.py` only when they are ready to share.
 - Add actual internship responsibilities and dates when available.
-- The LinkedIn, Zewail City, Banque Misr certificate, and File Organizer repository links use the supplied URLs.
+- The LinkedIn profile, Zewail City, Banque Misr certificate, File Organizer repository, and File Organizer LinkedIn post links use the supplied URLs.
 
 No contact form is included because no email delivery service was provided. The email link opens the visitor's email application and the site does not store messages.
 

@@ -19,6 +19,7 @@ PROJECTS = [
             ("What I learned", "[Add a short note about what you learned while building this project.]"),
         ],
         "github": "https://github.com/BavlyK100/tracker_app",
+        "linkedin": "https://lnkd.in/p/eVyAKW4x",
         "demo": None,
     },
 ]
