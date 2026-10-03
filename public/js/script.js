@@ -22,6 +22,42 @@
     applyTheme(nextTheme);
   });
 
+  const copyEmailButton = document.querySelector('.copy-email');
+  const copyEmailStatus = document.querySelector('#copy-email-status');
+  copyEmailButton?.addEventListener('click', async () => {
+    const email = copyEmailButton.dataset.copyEmail;
+    try {
+      let copied = false;
+      if (navigator.clipboard?.writeText) {
+        try {
+          await navigator.clipboard.writeText(email);
+          copied = true;
+        } catch (_) {
+          // Try the legacy selection-based fallback if clipboard permission fails.
+        }
+      }
+      if (!copied) {
+        const buffer = document.createElement('textarea');
+        buffer.className = 'copy-buffer';
+        buffer.value = email;
+        buffer.setAttribute('readonly', '');
+        document.body.append(buffer);
+        buffer.select();
+        try {
+          copied = document.execCommand('copy');
+        } finally {
+          buffer.remove();
+        }
+        if (!copied) throw new Error('Clipboard access unavailable');
+      }
+      copyEmailButton.textContent = 'Copied';
+      if (copyEmailStatus) copyEmailStatus.textContent = 'Email copied to clipboard.';
+    } catch (_) {
+      copyEmailButton.textContent = 'Retry';
+      if (copyEmailStatus) copyEmailStatus.textContent = 'Copy failed. You can select the email address and copy it manually.';
+    }
+  });
+
   const header = document.querySelector('.site-header');
   const menuToggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.primary-nav');
