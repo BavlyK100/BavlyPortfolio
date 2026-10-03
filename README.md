@@ -13,8 +13,6 @@ A personal portfolio website for Bavly Kamel, a Data Science & AI student at Zew
 - Flask routes for the home page, project listing, project details, and a JSON projects API
 - Accessible mobile navigation, keyboard focus states, reduced-motion support, and project status labels
 - Basic SEO and Open Graph metadata
-- Branded Open Graph and social sharing preview image
-- Copy-to-clipboard email contact button with an accessible status message
 
 ## Run locally
 
@@ -60,8 +58,6 @@ BavlyPortfolio/
 └── public/
     ├── css/style.css
     ├── images/favicon.svg
-    ├── images/social-preview.svg
-    ├── images/social-preview.png
     └── js/
         ├── script.js
         └── theme-init.js
@@ -73,7 +69,7 @@ BavlyPortfolio/
 - Add actual internship responsibilities and dates when available.
 - The LinkedIn profile, Zewail City, Banque Misr certificate, File Organizer repository, and File Organizer LinkedIn post links use the supplied URLs.
 
-No contact form is included because no email delivery service was provided. The contact section displays the address as text with a button to copy it to the clipboard.
+No contact form is included because no email delivery service was provided. The email address is displayed as plain text and does not open an email application.
 
 ## Security notes
 

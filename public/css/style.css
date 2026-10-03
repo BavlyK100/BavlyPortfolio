@@ -9,7 +9,7 @@
   --surface-hover: #17232f;
   --text-primary: #eef3f8;
   --text-secondary: #a5b1bf;
-  --text-muted: #8191a1;
+  --text-muted: #718091;
   --accent: #67d9f3;
   --accent-strong: #43c9e8;
   --accent-wash: rgba(103, 217, 243, .09);
@@ -41,17 +41,17 @@ html[data-theme="light"] {
   --surface-hover: #edf6f9;
   --text-primary: #15202b;
   --text-secondary: #506070;
-  --text-muted: #606e7d;
-  --accent: #08758f;
+  --text-muted: #758493;
+  --accent: #087f9e;
   --accent-strong: #08677f;
-  --accent-wash: rgba(8, 117, 143, .08);
+  --accent-wash: rgba(8, 127, 158, .08);
   --border: #dce4e9;
   --border-hover: #8db9c4;
   --success: #367b50;
-  --planned: #8b6420;
-  --upcoming-blue: #1f63c4;
-  --upcoming-blue-wash: rgba(31, 99, 196, .07);
-  --upcoming-blue-border: rgba(31, 99, 196, .29);
+  --planned: #9b742c;
+  --upcoming-blue: #226ed5;
+  --upcoming-blue-wash: rgba(34, 110, 213, .07);
+  --upcoming-blue-border: rgba(34, 110, 213, .29);
   --upcoming-overlay: rgba(240, 246, 255, .26);
   --upcoming-label-bg: rgba(255, 255, 255, .94);
 }
@@ -258,11 +258,6 @@ html[data-theme="light"] .button-primary:hover { color: #fff; }
 .contact-link b { color: var(--accent); font-size: 14px; font-weight: 400; }
 .contact-unavailable { color: var(--text-secondary); }
 .contact-unavailable b { color: var(--text-muted); }
-.contact-email-row { grid-template-columns: auto minmax(0, 1fr) auto; }
-.copy-email { padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: transparent; color: var(--text-secondary); font: 9px var(--font-mono); cursor: pointer; transition: border-color var(--transition), color var(--transition), background var(--transition); }
-.copy-email:hover { border-color: var(--border-hover); background: var(--accent-wash); color: var(--accent); }
-.visually-hidden, .copy-buffer { position: fixed; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-.copy-buffer { top: 0; left: -10000px; }
 .site-footer { border-top: 1px solid var(--border); background: var(--background-soft); }
 .footer-inner { display: flex; min-height: 94px; align-items: center; justify-content: space-between; gap: 20px; }
 .footer-identity { display: grid; gap: 1px; }
