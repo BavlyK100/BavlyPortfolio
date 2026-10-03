@@ -189,9 +189,8 @@ html[data-theme="light"] .button-primary:hover { color: #fff; }
 .project-card-upcoming .project-status i, .project-status.status-planned i { background: var(--upcoming-blue); box-shadow: 0 0 0 3px var(--upcoming-blue-wash); }
 .project-card-upcoming .feature-list li::before, .project-card-upcoming .card-arrow span { color: var(--upcoming-blue); }
 .project-card-upcoming .card-arrow:hover { color: var(--upcoming-blue); }
-.project-card-upcoming .card-content { filter: blur(2.5px); opacity: .78; transition: filter var(--transition), opacity var(--transition); }
-.project-card-upcoming:hover .card-content, .project-card-upcoming:focus-within .card-content { filter: blur(1.8px); opacity: .84; }
-.coming-soon-overlay { position: absolute; z-index: 2; inset: 0; display: grid; place-items: center; background: var(--upcoming-overlay); pointer-events: none; }
+.project-card-upcoming .card-content { filter: blur(4px); opacity: .68; }
+.coming-soon-overlay { position: absolute; z-index: 2; inset: 0; display: grid; place-items: center; background: var(--upcoming-overlay); pointer-events: auto; }
 .coming-soon-label { display: inline-flex; align-items: center; justify-content: center; padding: 13px 22px; border: 1px solid var(--upcoming-blue-border); border-radius: 7px; background: var(--upcoming-label-bg); box-shadow: 0 12px 34px rgba(30, 95, 190, .2); color: var(--upcoming-blue); font: 600 11px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; transform: rotate(0); transition: transform 260ms cubic-bezier(.2,.7,.2,1), box-shadow 260ms ease; }
 .project-card-upcoming:hover .coming-soon-label, .project-card-upcoming:focus-within .coming-soon-label { transform: rotate(-20deg) scale(1.18); box-shadow: 0 16px 42px rgba(30, 95, 190, .3); }
 .project-card-featured { min-height: 365px; grid-column: span 12; display: grid; grid-template-columns: 1fr 1fr; }
