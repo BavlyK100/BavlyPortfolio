@@ -67,10 +67,6 @@ BavlyPortfolio/
 
 No contact form is included because no email delivery service was provided. The email link opens the visitor's email application and the site does not store messages.
 
-## Screenshots
-
-`[Add portfolio screenshots here after capturing the finished site.]`
-
 ## Future improvements
 
 - Add future projects and their verified repository/live demo links when ready.
