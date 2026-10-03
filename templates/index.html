@@ -37,7 +37,7 @@
 </div></section>
 
 <section class="projects-section section-shell" id="projects"><div class="section-heading section-heading-row"><div><p class="eyebrow">03 / SELECTED WORK</p><h2>Projects<span>.</span></h2></div><a class="text-link all-projects-link" href="{{ url_for('projects') }}">All projects <span aria-hidden="true">↗</span></a></div>
-  <p class="section-intro">Real work first. Each project is labeled clearly, with methods and results added as they’re built.</p>
+  <p class="section-intro">Completed work comes first. Blue “Coming Soon” cards mark projects that are still planned.</p>
   <div class="project-grid">
     {% for project in projects %}
       {% include "project_card.html" %}

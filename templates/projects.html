@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Projects | Bavly Kamel{% endblock %}
 {% block content %}
-<section class="page-hero section-shell"><p class="eyebrow">SELECTED WORK / 2026</p><h1>Projects &amp;<br><span>experiments.</span></h1><p class="page-lede">A closer look at the project I’ve built, with its approach, tools, and repository.</p><a class="text-link" href="{{ url_for('home') }}#projects">← Back to overview</a></section>
+<section class="page-hero section-shell"><p class="eyebrow">SELECTED WORK / 2026</p><h1>Projects &amp;<br><span>experiments.</span></h1><p class="page-lede">Explore my completed work and upcoming project ideas, each labeled clearly by its current status.</p><a class="text-link" href="{{ url_for('home') }}#projects">← Back to overview</a></section>
 <section class="projects-section section-shell project-list-page"><div class="project-grid">{% for project in projects %}{% include "project_card.html" %}{% endfor %}</div></section>
 {% endblock %}

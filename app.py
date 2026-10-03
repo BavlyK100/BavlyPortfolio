@@ -11,8 +11,7 @@ app = Flask(__name__, static_folder=None)
 
 @app.get("/")
 def home():
-    featured_projects = PROJECTS[:3]
-    return render_template("index.html", projects=featured_projects)
+    return render_template("index.html", projects=PROJECTS)
 
 
 @app.get("/projects")

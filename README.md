@@ -8,6 +8,7 @@ A personal portfolio website for Bavly Kamel, a Data Science & AI student at Zew
 - Dark-first design with a persistent light/dark theme toggle
 - Featured project layout controlled by project data
 - Dedicated detail pages for each project
+- Published File Organizer project plus four clearly labeled upcoming project plans
 - Project descriptions and repository links without invented results
 - Flask routes for the home page, project listing, project details, and a JSON projects API
 - Accessible mobile navigation, keyboard focus states, reduced-motion support, and project status labels
