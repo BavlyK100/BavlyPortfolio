@@ -20,6 +20,8 @@
   --upcoming-blue: #8bbcff;
   --upcoming-blue-wash: rgba(74, 130, 255, .11);
   --upcoming-blue-border: rgba(112, 165, 255, .32);
+  --upcoming-overlay: rgba(5, 13, 25, .2);
+  --upcoming-label-bg: rgba(12, 29, 55, .92);
   --font-sans: Inter, "Segoe UI", sans-serif;
   --font-mono: "DM Mono", Consolas, monospace;
   --content: 1160px;
@@ -50,6 +52,8 @@ html[data-theme="light"] {
   --upcoming-blue: #226ed5;
   --upcoming-blue-wash: rgba(34, 110, 213, .07);
   --upcoming-blue-border: rgba(34, 110, 213, .29);
+  --upcoming-overlay: rgba(240, 246, 255, .26);
+  --upcoming-label-bg: rgba(255, 255, 255, .94);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -185,6 +189,11 @@ html[data-theme="light"] .button-primary:hover { color: #fff; }
 .project-card-upcoming .project-status i, .project-status.status-planned i { background: var(--upcoming-blue); box-shadow: 0 0 0 3px var(--upcoming-blue-wash); }
 .project-card-upcoming .feature-list li::before, .project-card-upcoming .card-arrow span { color: var(--upcoming-blue); }
 .project-card-upcoming .card-arrow:hover { color: var(--upcoming-blue); }
+.project-card-upcoming .card-content { filter: blur(2.5px); opacity: .78; transition: filter var(--transition), opacity var(--transition); }
+.project-card-upcoming:hover .card-content, .project-card-upcoming:focus-within .card-content { filter: blur(1.8px); opacity: .84; }
+.coming-soon-overlay { position: absolute; z-index: 2; inset: 0; display: grid; place-items: center; background: var(--upcoming-overlay); pointer-events: none; }
+.coming-soon-label { display: inline-flex; align-items: center; justify-content: center; padding: 13px 22px; border: 1px solid var(--upcoming-blue-border); border-radius: 7px; background: var(--upcoming-label-bg); box-shadow: 0 12px 34px rgba(30, 95, 190, .2); color: var(--upcoming-blue); font: 600 11px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; transform: rotate(0); transition: transform 260ms cubic-bezier(.2,.7,.2,1), box-shadow 260ms ease; }
+.project-card-upcoming:hover .coming-soon-label, .project-card-upcoming:focus-within .coming-soon-label { transform: rotate(-20deg) scale(1.18); box-shadow: 0 16px 42px rgba(30, 95, 190, .3); }
 .project-card-featured { min-height: 365px; grid-column: span 12; display: grid; grid-template-columns: 1fr 1fr; }
 .card-content { display: flex; min-width: 0; flex-direction: column; padding: 23px 24px 19px; }
 .project-card-featured .card-content { grid-column: 1; grid-row: 1; padding: clamp(26px,4vw,44px); }
@@ -411,4 +420,5 @@ html[data-theme="light"] .button-primary:hover { color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .hero-visual::before, .hero-visual svg { animation: none; }
+  .project-card-upcoming:hover .coming-soon-label, .project-card-upcoming:focus-within .coming-soon-label { transform: none; }
 }

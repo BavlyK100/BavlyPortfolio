@@ -1,4 +1,5 @@
 <article class="project-card{% if project.featured %} project-card-featured{% endif %}{% if project.upcoming %} project-card-upcoming{% endif %}">
+  {% if project.upcoming %}<div class="coming-soon-overlay" aria-hidden="true"><span class="coming-soon-label">Coming Soon</span></div>{% endif %}
   {% if project.featured %}
   <div class="project-visual file-visual" aria-hidden="true"><span class="visual-label">FILE SORTING / AUTOMATION</span><div class="file-flow"><div class="file-column"><span class="file loose-file">report.pdf</span><span class="file loose-file">script.py</span><span class="file loose-file">photo.jpg</span><span class="file loose-file">data.csv</span></div><span class="flow-arrow">→</span><div class="folder-column"><span class="folder">PDF</span><span class="folder">PY</span><span class="folder">IMAGES</span><span class="folder">DATA</span></div></div><span class="visual-footnote">Grouped by extension</span></div>
   {% endif %}
