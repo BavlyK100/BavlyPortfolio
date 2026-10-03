@@ -38,7 +38,7 @@ A personal portfolio website for Bavly Kamel, a Data Science & AI student at Zew
 
 5. Open <http://127.0.0.1:5000>.
 
-Flask's development server is intended for local development. Vercel detects the Flask app in `app.py` and deploys it as a Python Function. Static assets live in `public/`, where Vercel serves them through its CDN; a Flask fallback route serves the same files during local development.
+Flask's development server is intended for local development and starts with debug mode disabled. Vercel detects the Flask app in `app.py` and deploys it as a Python Function. Static assets live in `public/`, where Vercel serves them through its CDN; a Flask fallback route serves the same files during local development. `vercel.json` applies browser security headers to deployed pages and assets, while Flask applies the same headers to local responses.
 
 ## Project structure
 
@@ -47,6 +47,7 @@ BavlyPortfolio/
 ├── app.py
 ├── projects.py
 ├── requirements.txt
+├── vercel.json
 ├── templates/
 │   ├── 404.html
 │   ├── base.html
@@ -57,7 +58,9 @@ BavlyPortfolio/
 └── public/
     ├── css/style.css
     ├── images/favicon.svg
-    └── js/script.js
+    └── js/
+        ├── script.js
+        └── theme-init.js
 ```
 
 ## Content to personalize
@@ -66,7 +69,15 @@ BavlyPortfolio/
 - Add actual internship responsibilities and dates when available.
 - The LinkedIn profile, Zewail City, Banque Misr certificate, File Organizer repository, and File Organizer LinkedIn post links use the supplied URLs.
 
-No contact form is included because no email delivery service was provided. The email link opens the visitor's email application and the site does not store messages.
+No contact form is included because no email delivery service was provided. The email address is displayed as plain text and does not open an email application.
+
+## Security notes
+
+- Flask debug mode is disabled when running `app.py`.
+- Security headers include a restrictive Content Security Policy, MIME sniffing protection, clickjacking protection, a limited referrer policy, and disabled unused browser permissions.
+- The Content Security Policy permits only this site plus Google Fonts for CSS and font files. Keep third-party scripts, inline scripts, and inline styles out unless the policy is reviewed and updated deliberately.
+- Set the `TRUSTED_HOSTS` environment variable to a comma-separated list of exact public hostnames for production (for example, `example.com,www.example.com`). Flask rejects requests sent to other hostnames when this is set. Leave it unset for local development or previews whose hostnames change.
+- The site has no login, database, message form, or server-side user data storage, so there are no credentials or user records to protect in this app.
 
 ## Future improvements
 

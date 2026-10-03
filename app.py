@@ -1,5 +1,7 @@
 """Flask application for Bavly Kamel's personal portfolio."""
 
+import os
+
 from flask import Flask, abort, jsonify, render_template, send_from_directory
 
 from projects import PROJECTS, get_project
@@ -7,6 +9,32 @@ from projects import PROJECTS, get_project
 # Vercel serves files in public/ directly from its CDN. Disable Flask's default
 # /static route and use this fallback only for local development.
 app = Flask(__name__, static_folder=None)
+
+# Set TRUSTED_HOSTS to a comma-separated list of exact public hostnames in
+# production. Leave unset for local development and preview environments.
+trusted_hosts = os.environ.get("TRUSTED_HOSTS")
+if trusted_hosts:
+    app.config["TRUSTED_HOSTS"] = [
+        host.strip() for host in trusted_hosts.split(",") if host.strip()
+    ]
+
+
+@app.after_request
+def add_security_headers(response):
+    """Set browser protections on dynamic pages and local static assets."""
+    response.headers.setdefault(
+        "Content-Security-Policy",
+        "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; "
+        "font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; "
+        "base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'",
+    )
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "DENY")
+    response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
+    response.headers.setdefault(
+        "Permissions-Policy", "camera=(), microphone=(), geolocation=()"
+    )
+    return response
 
 
 @app.get("/")
@@ -48,4 +76,5 @@ def not_found(_error):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Keep Flask's interactive debugger disabled outside an explicit local setup.
+    app.run()
