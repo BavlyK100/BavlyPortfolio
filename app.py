@@ -2,9 +2,14 @@
 
 import os
 
-from flask import Flask, abort, jsonify, render_template, send_from_directory
+from flask import Flask, abort, jsonify, redirect, render_template, send_from_directory
 
 from projects import PROJECTS, get_project
+
+GITHUB_DESTINATIONS = {
+    "profile": "https://github.com/BavlyK100",
+    "file-organizer": "https://github.com/BavlyK100/tracker_app",
+}
 
 # Vercel serves files in public/ directly from its CDN. Disable Flask's default
 # /static route and use this fallback only for local development.
@@ -53,6 +58,15 @@ def project_detail(slug):
     if project is None:
         abort(404)
     return render_template("project.html", project=project)
+
+
+@app.get("/go/github/<destination>")
+def github_redirect(destination):
+    """Redirect through fixed GitHub destinations without accepting arbitrary URLs."""
+    target = GITHUB_DESTINATIONS.get(destination)
+    if target is None:
+        abort(404)
+    return redirect(target, code=302)
 
 
 @app.get("/api/projects")

@@ -77,6 +77,7 @@ No contact form is included because no email delivery service was provided. The 
 - Security headers include a restrictive Content Security Policy, MIME sniffing protection, clickjacking protection, a limited referrer policy, and disabled unused browser permissions.
 - The Content Security Policy permits only this site plus Google Fonts for CSS and font files. Keep third-party scripts, inline scripts, and inline styles out unless the policy is reviewed and updated deliberately.
 - Set the `TRUSTED_HOSTS` environment variable to a comma-separated list of exact public hostnames for production (for example, `example.com,www.example.com`). Flask rejects requests sent to other hostnames when this is set. Leave it unset for local development or previews whose hostnames change.
+- GitHub profile and File Organizer links use fixed internal redirect paths. Only destinations in the allowlist are accepted; unknown destinations return 404.
 - The site has no login, database, message form, or server-side user data storage, so there are no credentials or user records to protect in this app.
 
 ## Future improvements
