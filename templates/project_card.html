@@ -1,0 +1,9 @@
+<article class="project-card{% if project.featured %} project-card-featured{% endif %}">
+  {% if project.featured %}
+  <div class="project-visual file-visual" aria-hidden="true"><span class="visual-label">FILE SORTING / AUTOMATION</span><div class="file-flow"><div class="file-column"><span class="file loose-file">report.pdf</span><span class="file loose-file">script.py</span><span class="file loose-file">photo.jpg</span><span class="file loose-file">data.csv</span></div><span class="flow-arrow">→</span><div class="folder-column"><span class="folder">PDF</span><span class="folder">PY</span><span class="folder">IMAGES</span><span class="folder">DATA</span></div></div><span class="visual-footnote">Grouped by extension</span></div>
+  {% endif %}
+  <div class="card-content"><div class="card-head"><span class="project-index">{% if project.featured %}FEATURED · {% endif %}PROJECT {{ project.number }}</span><span class="project-status status-{{ project.status_kind }}"><i></i>{{ project.status }}</span></div>
+  <p class="project-category">{{ project.category }}</p><h3><a href="{{ url_for('project_detail', slug=project.slug) }}">{{ project.name }}</a></h3>
+  <p class="project-summary">{{ project.summary }}</p><ul class="feature-list">{% for feature in project.features[:3] %}<li>{{ feature }}</li>{% endfor %}</ul>
+  <div class="card-bottom"><div class="technology-list">{% for tech in project.technologies[:4] %}<span>{{ tech }}</span>{% endfor %}</div><div class="project-links"><a class="card-arrow" href="{{ url_for('project_detail', slug=project.slug) }}">View project <span aria-hidden="true">↗</span></a>{% if project.github %}<a class="card-arrow" href="{{ project.github }}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>{% endif %}</div></div></div>
+</article>
