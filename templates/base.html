@@ -27,8 +27,8 @@
         {% else %}
           <a class="nav-link" href="{{ url_for('home') }}#home">Home</a><a class="nav-link" href="{{ url_for('home') }}#about">About</a><a class="nav-link" href="{{ url_for('home') }}#skills">Skills</a><a class="nav-link{% if request.endpoint in ['projects', 'project_detail'] %} is-active{% endif %}"{% if request.endpoint in ['projects', 'project_detail'] %} aria-current="page"{% endif %} href="{{ url_for('projects') }}">Projects</a><a class="nav-link" href="{{ url_for('home') }}#experience">Experience</a><a class="nav-link" href="{{ url_for('home') }}#contact">Contact</a>
         {% endif %}
-        <a class="nav-github" href="https://github.com/BavlyK100" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span></button>
+        <div class="nav-tools"><a class="nav-github" href="https://github.com/BavlyK100" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span></button></div>
       </nav>
     </div>
   </header>
