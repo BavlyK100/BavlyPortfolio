@@ -2,7 +2,7 @@
 
 import os
 
-from flask import Flask, abort, jsonify, render_template, send_from_directory
+from flask import Flask, abort, jsonify, redirect, render_template, send_from_directory, url_for
 
 from projects import PROJECTS, get_project
 
@@ -50,6 +50,8 @@ def projects():
 @app.get("/projects/<slug>")
 def project_detail(slug):
     project = get_project(slug)
+    if project is None and slug == "file-organizer":
+        return redirect(url_for("project_detail", slug="10-day-goal-tracker"), code=301)
     if project is None:
         abort(404)
     return render_template("project.html", project=project)

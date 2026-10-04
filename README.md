@@ -8,7 +8,7 @@ A personal portfolio website for Bavly Kamel, a Data Science & AI student at Zew
 - Dark-first design with a persistent light/dark theme toggle
 - Featured project layout controlled by project data
 - Dedicated detail pages for each project
-- Published File Organizer project plus four clearly labeled upcoming project plans
+- Published 10-Day Goal Tracker project plus four clearly labeled upcoming project plans
 - Project descriptions and repository links without invented results
 - Flask routes for the home page, project listing, project details, and a JSON projects API
 - Accessible mobile navigation, keyboard focus states, reduced-motion support, and project status labels
@@ -67,7 +67,7 @@ BavlyPortfolio/
 
 - Add future projects to `projects.py` only when they are ready to share.
 - Add actual internship responsibilities and dates when available.
-- The LinkedIn profile, Zewail City, Banque Misr certificate, File Organizer repository, and File Organizer LinkedIn post links use the supplied URLs.
+- The LinkedIn profile, Zewail City, Banque Misr certificate, 10-Day Goal Tracker repository, and its LinkedIn post links use the supplied URLs.
 
 No contact form is included because no email delivery service was provided. The email address is displayed as plain text and does not open an email application.
 
