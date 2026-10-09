@@ -1,6 +1,16 @@
 __pycache__/
 *.py[cod]
+venv/
 .venv/
 .env
+.env.*
+!.env.example
 instance/
 .pytest_cache/
+# Keep private tracker records ignored without hiding public JSON project data.
+/private-data/
+/private_data/
+/personal-data/
+/personal_data/
+/tracker-data/
+/tracker_data/

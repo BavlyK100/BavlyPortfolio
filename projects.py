@@ -7,7 +7,7 @@ PROJECTS = [
         "featured": True,
         "name": "10-Day Goal Tracker",
         "category": "Flask · Productivity",
-        "status": "Existing project",
+        "status": "Completed",
         "status_kind": "available",
         "summary": "A personal goal-tracking web app for creating custom 10-day cycles, managing goals, tracking progress and streaks, reflecting on outcomes, and exporting cycles as PDFs.",
         "technologies": ["Python", "Flask", "Jinja2", "WeasyPrint", "JSON", "CSS"],

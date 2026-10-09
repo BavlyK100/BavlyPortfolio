@@ -32,7 +32,7 @@ def add_security_headers(response):
     response.headers.setdefault("X-Frame-Options", "DENY")
     response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
     response.headers.setdefault(
-        "Permissions-Policy", "camera=(), microphone=(), geolocation=()"
+        "Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()"
     )
     return response
 
